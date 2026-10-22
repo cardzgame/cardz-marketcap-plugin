@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cardz-marketcap",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "CARDZ collectible-card and TCG market data: public Pokémon and One Piece PSA 10 prices, population, daily history and rankings, with an MCP Apps interface.",
   "author": {
     "name": "Jackz Intelligent Technology Co., Ltd.",
@@ -82,11 +82,12 @@
               "prompt": "Buy the cheapest pack and place an auction bid for me."
             }
           ]
-        }
+        },
+        "release_notes": "Version 1.1.2 adds resource metadata compatibility for the existing three public read-only MCP Apps tools. The interface supports exact-printing search, dated card metrics and history, and published rankings. Standard MCP clients retain matching text and structured data. Public service: https://mcp.cardz.game/mcp. Directory approval is separate."
       },
       "publication": {
         "countries": [],
-        "release_notes": "Version 1.1.0 adds an interactive MCP Apps view for the same three public read-only tools: printing search, dated card metrics and history, and published rankings. Standard MCP hosts retain text and structured-data access without loading the interface. The public service is deployed at mcp.cardz.game; directory approval is separate."
+        "release_notes": "Version 1.1.2 adds an interactive MCP Apps view for the same three public read-only tools: printing search, dated card metrics and history, and published rankings. Standard MCP hosts retain text and structured-data access without loading the interface. The public service is deployed at mcp.cardz.game; directory approval is separate."
       }
     }
   }
