@@ -1,5 +1,7 @@
 # CARDZ — Collectibles & TCG
 
+![CARDZ](assets/icon.png)
+
 Version 1.1.4 is deployed at https://mcp.cardz.game/mcp. Compatible hosts can display the MCP Apps view. Standard MCP hosts continue to receive the same three tools with matching text and structured results; they do not need to load the interface. Marketplace review and approval are separate.
 
 CARDZ is a brand for collectible cards, trading card games and collectibles. This release's data coverage is Pokémon and One Piece PSA 10 cards.
@@ -25,3 +27,15 @@ Examples: “Find the different printings of OP05-119”; “Show the selected c
 Directory acceptance is platform-specific. This public repository and a working endpoint do not mean that a marketplace listing has been approved.
 
 [English MCP App demonstration](https://mcp.cardz.game/review/index.html) uses the official AppBridge reference host connected to production.
+
+## Gemini CLI extension
+
+The repository-root `gemini-extension.json` publishes the same CARDZ service for Gemini CLI. The extension identifier is `cardz`; its public brand and publisher are CARDZ. The legal operator is Jackz Intelligent Technology Co., Ltd. (株式会社 Jackz Intelligent Technology), Japan. Publisher contact: alex@jackz.ai.
+
+```sh
+gemini extensions install https://github.com/cardzgame/cardz-marketcap-plugin
+```
+
+The extension uses Streamable HTTP and allows only `search_cards`, `get_card` and `get_market`. It needs no CARDZ account, API key or local server process. It includes no extra prompts, hooks or commands. Gemini CLI controls the presentation of the returned text and structured data.
+
+[Official gallery publishing process](https://geminicli.com/docs/extensions/releasing/): the public repository, root manifest and `gemini-cli-extension` topic allow automatic discovery. Gallery inclusion is tracked separately from this Git release. This package targets the Gemini CLI Extension Gallery; Gemini web and mobile Connected Apps use a separate distribution process.
