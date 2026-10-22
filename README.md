@@ -23,3 +23,5 @@ Examples: “Find the different printings of OP05-119”; “Show the selected c
 [Service and publisher](https://mcp.cardz.game/) · [Privacy](https://mcp.cardz.game/privacy) · [Terms](https://mcp.cardz.game/terms) · [Support](https://mcp.cardz.game/support)
 
 Directory acceptance is platform-specific. This public repository and a working endpoint do not mean that a marketplace listing has been approved.
+
+[English MCP App demonstration](https://mcp.cardz.game/review/index.html) uses the official AppBridge reference host connected to production.
