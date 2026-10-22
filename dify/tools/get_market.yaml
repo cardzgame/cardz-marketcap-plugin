@@ -1,0 +1,69 @@
+identity:
+  name: get_market
+  author: CARDZ
+  label:
+    en_US: get_market
+description:
+  human:
+    en_US: Read CARDZ's published market-cap ranking for Pokémon, One Piece or the
+      combined index. Ranking is PSA 10 reference price multiplied by verified PSA
+      10 population. Preserve published order and effective date; this is the tracked
+      index, not the entire collectible-card market.
+  llm: Read CARDZ's published market-cap ranking for Pokémon, One Piece or the combined
+    index. Ranking is PSA 10 reference price multiplied by verified PSA 10 population.
+    Preserve published order and effective date; this is the tracked index, not the
+    entire collectible-card market.
+parameters:
+- name: scope
+  type: select
+  required: false
+  label:
+    en_US: Ranking scope
+  human_description:
+    en_US: Ranking scope; default all.
+  llm_description: Ranking scope; default all.
+  form: llm
+  options:
+  - value: all
+    label:
+      en_US: all
+  - value: pokemon
+    label:
+      en_US: pokemon
+  - value: one-piece
+    label:
+      en_US: one-piece
+- name: lang
+  type: select
+  required: false
+  label:
+    en_US: Display language
+  human_description:
+    en_US: Display language; printing language is returned separately.
+  llm_description: Display language; printing language is returned separately.
+  form: llm
+  options:
+  - value: en
+    label:
+      en_US: en
+  - value: zh-TW
+    label:
+      en_US: zh-TW
+  - value: ja
+    label:
+      en_US: ja
+  - value: ko
+    label:
+      en_US: ko
+- name: limit
+  type: number
+  required: false
+  label:
+    en_US: Result limit
+  human_description:
+    en_US: Number of ranked cards; default 10.
+  llm_description: Number of ranked cards; default 10.
+  form: llm
+extra:
+  python:
+    source: tools/get_market.py

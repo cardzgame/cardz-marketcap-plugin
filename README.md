@@ -39,3 +39,7 @@ gemini extensions install https://github.com/cardzgame/cardz-marketcap-plugin
 The extension uses Streamable HTTP and allows only `search_cards`, `get_card` and `get_market`. It needs no CARDZ account, API key or local server process. It includes no extra prompts, hooks or commands. Gemini CLI controls the presentation of the returned text and structured data.
 
 [Official gallery publishing process](https://geminicli.com/docs/extensions/releasing/): the public repository, root manifest and `gemini-cli-extension` topic allow automatic discovery. Gallery inclusion is tracked separately from this Git release. This package targets the Gemini CLI Extension Gallery; Gemini web and mobile Connected Apps use a separate distribution process.
+
+## Dify Marketplace plugin
+
+The [Dify plugin source](dify/) exposes the same three public CARDZ tools through Dify's Python SDK. It uses the formal fixed MCP endpoint, has no credentials or extra capabilities, and returns text and JSON. Its README and privacy policy include the Japanese operator and alex@jackz.ai. Dify Marketplace submission and approval are tracked separately from this source release.

@@ -1,0 +1,99 @@
+{
+  "search_cards": {
+    "type": "object",
+    "properties": {
+      "q": {
+        "type": "string",
+        "description": "Card name or collector number, for example OP05-119 or 217/187.",
+        "minLength": 1,
+        "maxLength": 160
+      },
+      "lang": {
+        "type": "string",
+        "description": "Display language; printing language is returned separately.",
+        "enum": [
+          "en",
+          "zh-TW",
+          "ja",
+          "ko"
+        ]
+      },
+      "tcg": {
+        "type": "string",
+        "description": "Optional game filter.",
+        "enum": [
+          "pokemon",
+          "one-piece"
+        ]
+      }
+    },
+    "required": [
+      "q"
+    ],
+    "additionalProperties": false
+  },
+  "get_card": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "string",
+        "description": "Exact public card ID from search_cards.",
+        "minLength": 1,
+        "maxLength": 96,
+        "pattern": "^[A-Za-z0-9][A-Za-z0-9_-]*$"
+      },
+      "lang": {
+        "type": "string",
+        "description": "Display language; printing language is returned separately.",
+        "enum": [
+          "en",
+          "zh-TW",
+          "ja",
+          "ko"
+        ]
+      },
+      "historyDays": {
+        "type": "integer",
+        "description": "Calendar days ending at the latest published history point; default 90.",
+        "minimum": 1,
+        "maximum": 365
+      }
+    },
+    "required": [
+      "id"
+    ],
+    "additionalProperties": false
+  },
+  "get_market": {
+    "type": "object",
+    "properties": {
+      "scope": {
+        "type": "string",
+        "description": "Ranking scope; default all.",
+        "enum": [
+          "all",
+          "pokemon",
+          "one-piece"
+        ]
+      },
+      "lang": {
+        "type": "string",
+        "description": "Display language; printing language is returned separately.",
+        "enum": [
+          "en",
+          "zh-TW",
+          "ja",
+          "ko"
+        ]
+      },
+      "limit": {
+        "type": "integer",
+        "description": "Number of ranked cards; default 10.",
+        "minimum": 1,
+        "maximum": 20
+      }
+    },
+    "required": [],
+    "additionalProperties": false
+  }
+}

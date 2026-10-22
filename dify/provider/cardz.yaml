@@ -1,0 +1,19 @@
+identity:
+  author: CARDZ
+  name: cardz
+  label:
+    en_US: CARDZ
+  description:
+    en_US: Public Pokémon and One Piece PSA 10 market data.
+  icon: icon.png
+  tags:
+  - search
+  - utilities
+credentials_for_provider: {}
+tools:
+- tools/search_cards.yaml
+- tools/get_card.yaml
+- tools/get_market.yaml
+extra:
+  python:
+    source: provider/cardz.py

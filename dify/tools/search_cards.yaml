@@ -1,0 +1,66 @@
+identity:
+  name: search_cards
+  author: CARDZ
+  label:
+    en_US: search_cards
+description:
+  human:
+    en_US: Search CARDZ for graded Pokémon or One Piece cards by name or collector
+      number. Return candidates and canonical links. If multiple printings match,
+      ask the user to choose; never infer language, finish or artwork. No matches
+      means no published match.
+  llm: Search CARDZ for graded Pokémon or One Piece cards by name or collector number.
+    Return candidates and canonical links. If multiple printings match, ask the user
+    to choose; never infer language, finish or artwork. No matches means no published
+    match.
+parameters:
+- name: q
+  type: string
+  required: true
+  label:
+    en_US: Card name or collector number
+  human_description:
+    en_US: Card name or collector number, for example OP05-119 or 217/187.
+  llm_description: Card name or collector number, for example OP05-119 or 217/187.
+  form: llm
+- name: lang
+  type: select
+  required: false
+  label:
+    en_US: Display language
+  human_description:
+    en_US: Display language; printing language is returned separately.
+  llm_description: Display language; printing language is returned separately.
+  form: llm
+  options:
+  - value: en
+    label:
+      en_US: en
+  - value: zh-TW
+    label:
+      en_US: zh-TW
+  - value: ja
+    label:
+      en_US: ja
+  - value: ko
+    label:
+      en_US: ko
+- name: tcg
+  type: select
+  required: false
+  label:
+    en_US: Game
+  human_description:
+    en_US: Optional game filter.
+  llm_description: Optional game filter.
+  form: llm
+  options:
+  - value: pokemon
+    label:
+      en_US: pokemon
+  - value: one-piece
+    label:
+      en_US: one-piece
+extra:
+  python:
+    source: tools/search_cards.py
