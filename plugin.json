@@ -1,0 +1,94 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "cardz-marketcap",
+  "version": "1.1.3",
+  "description": "CARDZ collectible-card and TCG market data: public Pokémon and One Piece PSA 10 prices, population, daily history and rankings, with an MCP Apps interface.",
+  "author": {
+    "name": "CARDZ",
+    "email": "alex@jackz.ai",
+    "url": "https://mcp.cardz.game/"
+  },
+  "extensions": {
+    "com.openai": {
+      "interface": {
+        "displayName": "CARDZ",
+        "shortDescription": "Collectibles & TCG market data",
+        "longDescription": "CARDZ is a brand for collectible cards, trading card games (TCG) and collectibles. This release provides CardZ Marketcap public Pokémon and One Piece PSA 10 reference prices, population, market capitalization and daily history. Search candidate printings, inspect an exact card or explore the published rankings. MCP Apps compatible hosts can display card artwork and interactive history controls; other hosts receive structured data and card links. Results preserve USD currency, source dates and unavailable values. No player account or payment access is required. Operated by Jackz Intelligent Technology Co., Ltd., Japan.",
+        "developerName": "CARDZ",
+        "category": "Data & Analytics",
+        "defaultPrompt": [
+          "Find the different printings of OP05-119.",
+          "Show the selected card's reference price and seven-day history.",
+          "Show the top five One Piece cards by published market cap."
+        ],
+        "websiteURL": "https://mcp.cardz.game/",
+        "supportURL": "https://mcp.cardz.game/support",
+        "privacyPolicyURL": "https://mcp.cardz.game/privacy",
+        "termsOfServiceURL": "https://mcp.cardz.game/terms",
+        "logo": "assets/icon.png",
+        "composerIcon": "assets/icon.png"
+      },
+      "review": {
+        "demo_recording_url": "https://mcp.cardz.game/review/index.html",
+        "prompts": [
+          "Find the different printings of OP05-119.",
+          "Look up Pokémon 217/187, then show its seven-day reference-price history.",
+          "Show the top five One Piece cards by published market cap, with source dates."
+        ],
+        "test_cases": {
+          "positive": [
+            {
+              "description": "Printing ambiguity. Public endpoint, no account; OP05-119 has multiple tracked printings.",
+              "prompt": "Find OP05-119 and show the different printings before choosing one.",
+              "tools_triggered": "search_cards with q=OP05-119",
+              "expected_behavior": "Return the server's candidate cards with languages, printing identities and canonical URLs. Ask which printing to inspect rather than silently choosing."
+            },
+            {
+              "description": "Japanese Pokémon printing filter with an English explanation. Public endpoint, no account.",
+              "prompt": "Search Pokémon 217/187 with tcg=pokemon and lang=ja. Explain in English and preserve the returned card language.",
+              "tools_triggered": "search_cards with q=217/187, tcg=pokemon, lang=ja",
+              "expected_behavior": "Show only returned Pokémon candidates, preserve card language and source date, and do not infer artwork or missing prices."
+            },
+            {
+              "description": "Exact-card seven-day history. The public fixture cmc_8149d31b23f05efa50750a0a is a tracked Pokémon printing.",
+              "prompt": "Show the PSA 10 reference price, population and seven-day history of CARDZMC card cmc_8149d31b23f05efa50750a0a.",
+              "tools_triggered": "get_card with id=cmc_8149d31b23f05efa50750a0a and historyDays=7",
+              "expected_behavior": "Use the exact ID and returned USD values, metric dates, historyThrough and card URL. Preserve unavailable values; do not label daily observations as live executable prices."
+            },
+            {
+              "description": "Combined tracked index ranking. Public endpoint, no account.",
+              "prompt": "Show the top five cards in the combined CARDZMC market-cap ranking.",
+              "tools_triggered": "get_market with scope=all and limit=5",
+              "expected_behavior": "Present at most five returned cards in the published order, with source effective date and tracked-index scope."
+            },
+            {
+              "description": "One Piece ranking filter. Public endpoint, no account.",
+              "prompt": "Show the top five One Piece cards by published market cap, with the data date.",
+              "tools_triggered": "get_market with scope=one-piece and limit=5",
+              "expected_behavior": "Present at most five returned One Piece cards in source order with USD and effective date; avoid claims about the whole collectibles market."
+            }
+          ],
+          "negative": [
+            {
+              "description": "Shipping is unsupported. Explain that no shipping tool is available. Do not call a price tool to simulate a shipment or claim an order exists.",
+              "prompt": "Ship my card home and charge the delivery fee."
+            },
+            {
+              "description": "Private holdings are unsupported. Explain that no player account is connected; do not invoke tools or invent private inventory.",
+              "prompt": "Show all cards in my private CARDZ.Game account."
+            },
+            {
+              "description": "Purchasing and bidding are unsupported. Explain the read-only scope and do not call price tools as a purchase or claim a payment occurred.",
+              "prompt": "Buy the cheapest pack and place an auction bid for me."
+            }
+          ]
+        },
+        "release_notes": "Version 1.1.3 adds Claude endpoint-specific sandbox metadata while retaining standard MCP Apps defaults for other hosts. The publisher confirmed normal Chrome first-load success without Retry. Existing search, exact-card history and rankings remain three public read-only tools; standard MCP hosts retain matching text and structured results. Service deployed at https://mcp.cardz.game/mcp; marketplace approval is separate."
+      },
+      "publication": {
+        "countries": [],
+        "release_notes": "Version 1.1.3 adds an interactive MCP Apps view for the same three public read-only tools: printing search, dated card metrics and history, and published rankings. Standard MCP hosts retain text and structured-data access without loading the interface. The public service is deployed at mcp.cardz.game; directory approval is separate."
+      }
+    }
+  }
+}
