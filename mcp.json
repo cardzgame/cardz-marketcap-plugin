@@ -3,7 +3,7 @@
   "mcpServers": {
     "cardz-marketcap": {
       "type": "streamable-http",
-      "url": "https://cardzmc-public-mcp.icy-mouse-e484.workers.dev/mcp"
+      "url": "https://mcp.cardz.game/mcp"
     }
   }
 }
