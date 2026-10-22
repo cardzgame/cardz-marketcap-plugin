@@ -1,0 +1,60 @@
+identity:
+  name: get_card
+  author: CARDZ
+  label:
+    en_US: get_card
+description:
+  human:
+    en_US: 'Read an exact CARDZ card ID returned by search_cards: PSA 10 reference
+      price, population, market cap, changes and daily history. Cite its canonical
+      URL and each metric''s asOf date. Daily observations are not live quotes; null
+      is missing, never zero.'
+  llm: 'Read an exact CARDZ card ID returned by search_cards: PSA 10 reference price,
+    population, market cap, changes and daily history. Cite its canonical URL and
+    each metric''s asOf date. Daily observations are not live quotes; null is missing,
+    never zero.'
+parameters:
+- name: id
+  type: string
+  required: true
+  label:
+    en_US: Public card ID
+  human_description:
+    en_US: Exact public card ID from search_cards.
+  llm_description: Exact public card ID from search_cards.
+  form: llm
+- name: lang
+  type: select
+  required: false
+  label:
+    en_US: Display language
+  human_description:
+    en_US: Display language; printing language is returned separately.
+  llm_description: Display language; printing language is returned separately.
+  form: llm
+  options:
+  - value: en
+    label:
+      en_US: en
+  - value: zh-TW
+    label:
+      en_US: zh-TW
+  - value: ja
+    label:
+      en_US: ja
+  - value: ko
+    label:
+      en_US: ko
+- name: historyDays
+  type: number
+  required: false
+  label:
+    en_US: History days
+  human_description:
+    en_US: Calendar days ending at the latest published history point; default 90.
+  llm_description: Calendar days ending at the latest published history point; default
+    90.
+  form: llm
+extra:
+  python:
+    source: tools/get_card.py
