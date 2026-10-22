@@ -37,7 +37,7 @@
           ]
         }
       },
-      "publication": { "release_notes": "Initial public price-only MCP release: card search, exact-card metrics and daily history, and published market rankings." }
+      "publication": { "countries": [], "release_notes": "Initial public price-only MCP release: card search, exact-card metrics and daily history, and published market rankings." }
     }
   }
 }
