@@ -1,7 +1,7 @@
 {
   "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
   "name": "cardz-marketcap",
-  "version": "1.1.3",
+  "version": "1.1.4",
   "description": "CARDZ collectible-card and TCG market data: public Pokémon and One Piece PSA 10 prices, population, daily history and rankings, with an MCP Apps interface.",
   "author": {
     "name": "CARDZ",
@@ -13,7 +13,7 @@
       "interface": {
         "displayName": "CARDZ",
         "shortDescription": "Collectibles & TCG market data",
-        "longDescription": "CARDZ is a brand for collectible cards, trading card games (TCG) and collectibles. This release provides CardZ Marketcap public Pokémon and One Piece PSA 10 reference prices, population, market capitalization and daily history. Search candidate printings, inspect an exact card or explore the published rankings. MCP Apps compatible hosts can display card artwork and interactive history controls; other hosts receive structured data and card links. Results preserve USD currency, source dates and unavailable values. No player account or payment access is required. Operated by Jackz Intelligent Technology Co., Ltd., Japan.",
+        "longDescription": "CARDZ is a brand for collectible cards, trading card games (TCG) and collectibles. This release provides public Pokémon and One Piece PSA 10 reference prices, population, market capitalization and daily history. Search candidate printings, inspect an exact card or explore the published rankings. MCP Apps compatible hosts can display card artwork and interactive history controls; other hosts receive structured data and card links. Results preserve USD currency, source dates and unavailable values. No player account or payment access is required. Operated by Jackz Intelligent Technology Co., Ltd., Japan.",
         "developerName": "CARDZ",
         "category": "Data & Analytics",
         "defaultPrompt": [
@@ -51,13 +51,13 @@
             },
             {
               "description": "Exact-card seven-day history. The public fixture cmc_8149d31b23f05efa50750a0a is a tracked Pokémon printing.",
-              "prompt": "Show the PSA 10 reference price, population and seven-day history of CARDZMC card cmc_8149d31b23f05efa50750a0a.",
+              "prompt": "Show the PSA 10 reference price, population and seven-day history of CARDZ card cmc_8149d31b23f05efa50750a0a.",
               "tools_triggered": "get_card with id=cmc_8149d31b23f05efa50750a0a and historyDays=7",
               "expected_behavior": "Use the exact ID and returned USD values, metric dates, historyThrough and card URL. Preserve unavailable values; do not label daily observations as live executable prices."
             },
             {
               "description": "Combined tracked index ranking. Public endpoint, no account.",
-              "prompt": "Show the top five cards in the combined CARDZMC market-cap ranking.",
+              "prompt": "Show the top five cards in the combined CARDZ market-cap ranking.",
               "tools_triggered": "get_market with scope=all and limit=5",
               "expected_behavior": "Present at most five returned cards in the published order, with source effective date and tracked-index scope."
             },
@@ -83,11 +83,11 @@
             }
           ]
         },
-        "release_notes": "Version 1.1.3 adds Claude endpoint-specific sandbox metadata while retaining standard MCP Apps defaults for other hosts. The publisher confirmed normal Chrome first-load success without Retry. Existing search, exact-card history and rankings remain three public read-only tools; standard MCP hosts retain matching text and structured results. Service deployed at https://mcp.cardz.game/mcp; marketplace approval is separate."
+        "release_notes": "Version 1.1.4 unifies the CARDZ public brand, logo and English listing metadata at https://mcp.cardz.game/mcp. It retains the three public read-only tools, text/structured-data compatibility, and Claude endpoint-specific sandbox metadata. Directory approval is separate from service deployment."
       },
       "publication": {
         "countries": [],
-        "release_notes": "Version 1.1.3 adds an interactive MCP Apps view for the same three public read-only tools: printing search, dated card metrics and history, and published rankings. Standard MCP hosts retain text and structured-data access without loading the interface. The public service is deployed at mcp.cardz.game; directory approval is separate."
+        "release_notes": "Version 1.1.4 unifies the CARDZ public brand, logo and English listing metadata at https://mcp.cardz.game/mcp. It retains the three public read-only tools, text/structured-data compatibility, and Claude endpoint-specific sandbox metadata. Directory approval is separate from service deployment."
       }
     }
   }

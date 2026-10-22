@@ -1,6 +1,6 @@
 # CARDZ — Collectibles & TCG
 
-Version 1.1.3 is deployed at https://mcp.cardz.game/mcp. Compatible hosts can display the MCP Apps view. Standard MCP hosts continue to receive the same three tools with matching text and structured results; they do not need to load the interface. Marketplace review and approval are separate.
+Version 1.1.4 is deployed at https://mcp.cardz.game/mcp. Compatible hosts can display the MCP Apps view. Standard MCP hosts continue to receive the same three tools with matching text and structured results; they do not need to load the interface. Marketplace review and approval are separate.
 
 CARDZ is a brand for collectible cards, trading card games and collectibles. This release's data coverage is Pokémon and One Piece PSA 10 cards.
 
@@ -23,3 +23,5 @@ Examples: “Find the different printings of OP05-119”; “Show the selected c
 [Service and publisher](https://mcp.cardz.game/) · [Privacy](https://mcp.cardz.game/privacy) · [Terms](https://mcp.cardz.game/terms) · [Support](https://mcp.cardz.game/support)
 
 Directory acceptance is platform-specific. This public repository and a working endpoint do not mean that a marketplace listing has been approved.
+
+[English MCP App demonstration](https://mcp.cardz.game/review/index.html) uses the official AppBridge reference host connected to production.
